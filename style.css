@@ -1,0 +1,464 @@
+/* --- MASTER STYLESHEET --- */
+
+/* 1. Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f7f9fb;
+    color: #333;
+    padding-top: 80px; /* Main content offset for fixed header */
+}
+
+main {
+    min-height: calc(100vh - 150px); /* Pushes footer down */
+}
+
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 30px;
+}
+
+/* 2. Header & Navigation */
+header {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-link {
+    text-decoration: none;
+}
+
+.brand-link .main {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #000;
+    display: block;
+    line-height: 1;
+}
+
+.brand-link .sub {
+    font-size: 0.8rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 20px;
+}
+
+.nav-link, .nav-link-welcome {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 5px 0;
+}
+
+.nav-link:hover {
+    color: #007acc;
+    text-decoration: none;
+}
+
+.nav-link-welcome {
+    color: #777;
+    margin-right: -10px;
+}
+
+.nav-link.signin {
+    background: #007acc;
+    color: #fff;
+    border: 2px solid #007acc;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-link.signin:hover {
+    background: #005fa3;
+    border-color: #005fa3;
+    color: #fff;
+}
+
+/* 3. Hero Section (index.php) */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-bg.jpg') no-repeat center center/cover;
+    /* You'll need a 'hero-bg.jpg' image in your 'images' folder */
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #007acc;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s;
+    border: 2px solid #007acc;
+}
+
+.btn-primary:hover {
+    background: #005fa3;
+    border-color: #005fa3;
+    text-decoration: none;
+}
+
+/* 4. Product Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 { /* Brand */
+    font-size: 1rem;
+    font-weight: 500;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.card-content h2 { /* Model */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111;
+    margin-top: 5px;
+}
+
+.card-content h4 { /* Price */
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #005fa3;
+    margin: 10px 0;
+}
+
+.card-content p { /* Description */
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Pushes button to bottom */
+}
+
+/* 5. Sort/Filter Form (index.php) */
+.sort-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.sort-form label {
+    font-weight: 600;
+}
+.sort-form select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.sort-form button {
+    background: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.sort-form button:hover {
+    background: #218838;
+}
+
+/* 6. Form Containers (Login, Register, Contact, Order) */
+.form-container,
+.form-container-boxed {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.form-container-boxed {
+    max-width: 500px;
+}
+
+.form-container h2,
+.form-container-boxed h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* 7. Form Elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fdfdfd;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* 8. Form Buttons (This is the new style you wanted) */
+.form-btn {
+    display: block;
+    width: 100%;
+    background: #007acc;
+    color: #fff;
+    border: 2px solid #007acc; 
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    text-align: center; 
+    margin-bottom: 15px; /* Adds space between buttons */
+    text-decoration: none; /* Removes underline from links */
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.form-btn:hover {
+    background: #005fa3;
+    border-color: #005fa3;
+    color: #fff;
+}
+
+/* Secondary button style (for Admin Login) */
+.form-btn.form-btn-secondary {
+    background: #fff; /* White background */
+    color: #007acc; /* Blue text */
+}
+
+.form-btn.form-btn-secondary:hover {
+    background: #f7f9fb; /* Light background hover */
+    color: #005fa3;
+    border-color: #005fa3;
+}
+
+.form-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+/* 9. Error/Success Messages */
+.error {
+    color: #D8000C;
+    background: #FFD2D2;
+    padding: 10px 15px;
+    border: 1px solid #D8000C;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.success {
+    color: #4F8A10;
+    background: #DFF2BF;
+    padding: 10px 15px;
+    border: 1px solid #4F8A10;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* 10. Table Styles (Admin & My Orders) */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.order-table th, 
+.order-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    white-space: nowrap; /* Prevents cell content from wrapping */
+}
+.order-table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Status Colors */
+.status-Pending { color: #f0ad4e; font-weight: 600; }
+.status-Processing { color: #007acc; font-weight: 600; }
+.status-On-Delivery { color: #5bc0de; font-weight: 600; }
+.status-Delivered { color: #5cb85c; font-weight: 600; }
+
+/* Admin Status Update Form */
+.status-form select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.status-form button {
+    background: #007acc;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.status-form button:hover {
+    background: #005fa3;
+}
+
+/* --- Taller Team Card Images (About Page) --- */
+.team-cards .card img {
+    height: 400px;        /* You can change this value (was 250px) */
+    object-position: top; /* Keeps the top of the image visible */
+}
+
+/* --- Featured Models Logo Cards (About Page) --- */
+.logo-cards .card img {
+    object-fit: contain; /* This will fit the whole logo */
+    padding: 15px;       /* Adds some space around the logo */
+}
+/* 11. Footer */
+footer {
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 20px; 
+    background: #333; 
+    color: #fff;
+    border-top: 1px solid #444;
+}
